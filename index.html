@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2048 Advanced - Optimized Project</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="theme-light">
+    <header>
+      <h1>2048 Advanced Demo</h1>
+    </header>
+
+    <main>
+      <!-- Landing Page Section -->
+      <section id="landing-page" class="container">
+        <div id="demo-container">
+          <div id="demo-game" class="grid-container demo-grid"></div>
+        </div>
+        <div id="auth-options">
+          <button id="login-modal-btn" class="primary-btn">Sign In</button>
+          <button id="register-modal-btn" class="primary-btn">Sign Up</button>
+          <button id="google-login-btn" class="primary-btn">Sign In with Google</button>
+          <button id="guest-login-btn" class="primary-btn">Continue as Guest</button>
+        </div>
+      </section>
+
+      <!-- Game Application Section -->
+      <section id="game-app" class="container" hidden>
+        <header>
+          <div class="title-bar">
+            <h1>2048 <br>Advanced</h1>
+            <div id="profile-info">
+              <img id="avatar" src="icons/user.png" alt="Profile Picture" title="View Profile" />
+              <span id="username-display">User</span>
+              <!-- دکمه دعوت از دوستان -->
+              <button id="invite-friends-btn" title="Invite Friends">Invite</button>
+            </div>
+          </div>
+          <div class="header-top">
+            <div class="score-bar">
+              <div>Score: <span id="score">0</span></div>
+              <div>High Score: <span id="high-score">0</span></div>
+              <div class="coin-display">
+                <img src="icons/coin.png" alt="Coins" />
+                <span id="user-coins">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="level-bar">
+            <span>Level: <span id="user-level">1</span></span>
+            <div class="xp-bar">
+              <div class="xp-fill" id="xp-fill"></div>
+            </div>
+            <small id="xp-info">0 / 1000 XP</small>
+          </div>
+          <p id="timer-display"></p>
+          <p id="moves-display"></p>
+        </header>
+        <div id="grid-container" class="grid-container"></div>
+        <div class="controls">
+          <button id="undo-btn" title="Undo (1 free, then 5 coins)">
+            <img src="icons/undo.png" alt="Undo" />
+          </button>
+          <button id="bomb-btn" title="Bomb (Cost: 10 coins)">
+            <img src="icons/bomb.png" alt="Bomb" />
+          </button>
+          <button id="swap-btn" title="Swap (Cost: 15 coins)">
+            <img src="icons/swap.png" alt="Swap" />
+          </button>
+          <button id="freeze-btn" title="Freeze (Cost: 15 coins)">
+            <img src="icons/freeze.png" alt="Freeze" />
+          </button>
+          <button id="new-game-btn" class="primary-btn">New Game</button>
+        </div>
+        <div id="extra-info">
+          <div id="timer-display"></div>
+          <div id="moves-display"></div>
+          <div id="daily-mission"></div>
+        </div>
+      </section>
+
+      <!-- Profile Page Section -->
+      <section id="profile-page" class="container" hidden>
+        <header>
+          <h2>User Settings</h2>
+          <button id="back-to-game-btn" class="primary-btn">Back to Game</button>
+        </header>
+        <section class="profile-settings">
+          <div class="settings-form">
+            <label for="username-input">Username:</label>
+            <input type="text" id="username-input" />
+            <label for="avatar-input">Profile Picture:</label>
+            <input type="file" id="avatar-input" accept="image/*" />
+          </div>
+          <div class="theme-selection">
+            <h3>Select Theme:</h3>
+            <div class="theme-options">
+              <button class="theme-btn" data-theme="theme-light">Light</button>
+              <button class="theme-btn" data-theme="theme-dark">Dark</button>
+              <button class="theme-btn" data-theme="theme-blue">Blue</button>
+              <button class="theme-btn" data-theme="theme-green">Green</button>
+            </div>
+          </div>
+          <div id="profile-buttons">
+            <button id="help-btn">Help</button>
+            <button id="leaderboard-btn">Leaderboard</button>
+            <button id="daily-btn">Daily Mission</button>
+            <button id="remove-ads-btn">Remove Ads</button>
+            <button id="shop-btn">Shop</button>
+            <button id="achievements-btn">Achievements</button>
+            <button id="logout-btn">Sign Out</button>
+          </div>
+          <button id="save-settings-btn" class="primary-btn">Save Settings</button>
+        </section>
+      </section>
+    </main>
+
+    <!-- Advertisement Banners -->
+    <aside id="top-ad-banner" class="ad-banner ad-top" aria-label="Top Advertisement">
+      <p>Your Top Banner Ad Here</p>
+    </aside>
+    <aside id="bottom-ad-banner" class="ad-banner ad-bottom" aria-label="Bottom Advertisement">
+      <p>Your Bottom Banner Ad Here</p>
+    </aside>
+
+    <!-- Modals -->
+    <div class="modal" id="login-modal" role="dialog" aria-labelledby="login-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="login-modal" aria-label="Close">&times;</button>
+        <h2 id="login-modal-title">Sign In</h2>
+        <div class="settings-form">
+          <label for="login-email">Email:</label>
+          <input type="email" id="login-email" placeholder="you@example.com" />
+          <label for="login-password">Password:</label>
+          <input type="password" id="login-password" placeholder="********" />
+        </div>
+        <button id="login-submit-btn" class="primary-btn">Sign In</button>
+      </div>
+    </div>
+
+    <div class="modal" id="register-modal" role="dialog" aria-labelledby="register-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="register-modal" aria-label="Close">&times;</button>
+        <h2 id="register-modal-title">Sign Up</h2>
+        <div class="settings-form">
+          <label for="register-email">Email:</label>
+          <input type="email" id="register-email" placeholder="you@example.com" />
+          <label for="register-password">Password:</label>
+          <input type="password" id="register-password" placeholder="********" />
+        </div>
+        <button id="register-submit-btn" class="primary-btn">Register</button>
+      </div>
+    </div>
+
+    <div class="modal" id="newgame-modal" role="dialog" aria-labelledby="newgame-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="newgame-modal" aria-label="Close">&times;</button>
+        <h3 id="newgame-modal-title">Start New Game</h3>
+        <div class="newgame-options">
+          <div class="game-mode-selection">
+            <p>Select Game Mode:</p>
+            <div class="game-mode-cards">
+              <div class="mode-card" data-mode="Classic">
+                <img src="icons/classic.png" alt="Classic Mode" />
+                <span>Classic</span>
+              </div>
+              <div class="mode-card" data-mode="Timed">
+                <img src="icons/timed.png" alt="Timed Mode" />
+                <span>Timed</span>
+              </div>
+              <div class="mode-card" data-mode="MoveChallenge">
+                <img src="icons/move.png" alt="Move Challenge" />
+                <span>Move Challenge</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid-size-selection">
+            <p>Select Grid Size:</p>
+            <div class="grid-size-cards">
+              <div class="size-card" data-size="4">
+                <img src="icons/grid4.png" alt="4x4 Grid" />
+                <span>4x4</span>
+              </div>
+              <div class="size-card" data-size="5">
+                <img src="icons/grid5.png" alt="5x5 Grid" />
+                <span>5x5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="start-newgame-btn" class="primary-btn">Start</button>
+      </div>
+    </div>
+
+    <div class="modal" id="help-modal" role="dialog" aria-labelledby="help-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="help-modal" aria-label="Close">&times;</button>
+        <h2 id="help-modal-title">How to Play 2048</h2>
+        <p>Use the arrow keys or swipe to move the tiles. When two tiles with the same number collide, they merge into one! Your goal is to create a tile with 2048 (or higher).</p>
+        <p>Special Buttons:</p>
+        <ul>
+          <li>Undo: 1 free use, then costs 5 coins</li>
+          <li>Bomb: Remove one tile (Cost: 10 coins)</li>
+          <li>Swap: Swap two tiles (Cost: 15 coins)</li>
+          <li>Freeze: Next move won’t spawn a new tile (Cost: 15 coins)</li>
+        </ul>
+        <p>Coins are earned by merging tiles (e.g., merges of tiles ≥ 128).</p>
+        <button id="help-ok-btn" class="primary-btn">OK</button>
+      </div>
+    </div>
+
+    <div class="modal" id="leaderboard-modal" role="dialog" aria-labelledby="leaderboard-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="leaderboard-modal" aria-label="Close">&times;</button>
+        <h2 id="leaderboard-modal-title">Top 5 High Scores</h2>
+        <ul id="leaderboard-list"></ul>
+        <button id="leaderboard-ok-btn" class="primary-btn">OK</button>
+      </div>
+    </div>
+
+    <div class="modal" id="daily-modal" role="dialog" aria-labelledby="daily-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="daily-modal" aria-label="Close">&times;</button>
+        <h3 id="daily-modal-title">Daily Mission</h3>
+        <p id="daily-mission-text">Reach tile 2048 and earn 5 coins!</p>
+        <button id="daily-mission-ok-btn" class="primary-btn">OK</button>
+      </div>
+    </div>
+
+    <div class="modal" id="custom-modal" role="alertdialog" aria-labelledby="custom-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="custom-modal" aria-label="Close">&times;</button>
+        <p id="modal-text"></p>
+        <button id="modal-ok-btn" class="primary-btn">OK</button>
+      </div>
+    </div>
+
+    <div class="modal" id="rewarded-modal" role="dialog" aria-labelledby="rewarded-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="rewarded-modal" aria-label="Close">&times;</button>
+        <h3 id="rewarded-modal-title">Watch an Ad for Coins</h3>
+        <p>Watch a short ad and receive +50 coins!</p>
+        <button id="watch-ad-btn" class="primary-btn">Watch Ad</button>
+        <button id="cancel-ad-btn" class="primary-btn">Cancel</button>
+      </div>
+    </div>
+
+    <div class="modal" id="win-modal" role="dialog" aria-labelledby="win-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="win-modal" aria-label="Close">&times;</button>
+        <h2 id="win-modal-title">Congratulations! You Win!</h2>
+        <p>You have reached the 2048 tile. Continue playing or start a new game!</p>
+        <button id="win-ok-btn" class="primary-btn">OK</button>
+      </div>
+    </div>
+
+    <!-- Shop Modal -->
+    <div class="modal" id="shop-modal" role="dialog" aria-labelledby="shop-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="shop-modal" aria-label="Close">&times;</button>
+        <h2 id="shop-modal-title">In-App Shop</h2>
+        <div id="shop-items">
+          <!-- Shop items will be loaded dynamically -->
+        </div>
+        <button id="shop-close-btn" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- Achievements Modal -->
+    <div class="modal" id="achievements-modal" role="dialog" aria-labelledby="achievements-modal-title" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-modal" data-modal="achievements-modal" aria-label="Close">&times;</button>
+        <h2 id="achievements-modal-title">Achievements</h2>
+        <div id="achievements-list">
+          <!-- Achievements will be loaded dynamically -->
+        </div>
+        <button id="achievements-close-btn" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>
