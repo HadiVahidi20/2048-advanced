@@ -1,0 +1,890 @@
+/* ================================
+   Reset & Base Settings
+   ================================ */
+   *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ================================
+     CSS Variables
+     ================================ */
+  :root {
+    /* Transitions & Typography */
+    --transition-duration: 0.3s;
+    --transition-ease: ease-in-out;
+    --font-family: 'Roboto', sans-serif;
+    --font-size-small: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-large: 1.5rem;
+    --font-size-xl: 2rem;
+    
+    /* Colors (Light Theme) */
+    --primary-color: #8f7a66;
+    --secondary-color: #f9f6f2;
+    --accent-color: #f67c5f;
+    --light-text-color: #333;
+    --dark-text-color: #f0f0f0;
+    --blue-text-color: #006064;
+    --green-text-color: #1b5e20;
+    
+    /* Background Gradients */
+    --bg-light-start: #f8f9fa;
+    --bg-light-end: #e9ecef;
+    --bg-dark-start: #2c2c2c;
+    --bg-dark-end: #1a1a1a;
+    --bg-blue-start: #e0f7fa;
+    --bg-blue-end: #b2ebf2;
+    --bg-green-start: #e8f5e9;
+    --bg-green-end: #c8e6c9;
+    
+    /* Container & Grid */
+    --container-bg: #bbada0;
+    --inner-bg: #ffffff;
+    --grid-container-bg: #bbada0;
+    --tile-bg: #cdc1b4;
+    --text-color: #776e65;
+    
+    /* Button Styles */
+    --controls-btn-bg: #d3c0b0;
+    --primary-btn-bg: var(--primary-color);
+    
+    /* Shadows */
+    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --shadow-inner: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Border Radius */
+    --radius-small: 0.3125rem;
+    --radius-medium: 0.5rem;
+    --radius-large: 0.75rem;
+    --radius-xlarge: 1rem;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Modal Background */
+    --modal-bg: rgba(0, 0, 0, 0.6);
+    
+    /* Tile Colors for Numbers (Light Theme Defaults) */
+    --tile-2: #eee4da;
+    --tile-4: #ede0c8;
+    --tile-8: #f2b179;
+    --tile-16: #f59563;
+    --tile-32: #f67c5f;
+    --tile-64: #f65e3b;
+    --tile-128: #edcf72;
+    --tile-256: #edcc61;
+    --tile-512: #edc850;
+    --tile-1024: #edc53f;
+    --tile-2048: #edc22e;
+  }
+  
+  /* ================================
+     Global Styles
+     ================================ */
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background: linear-gradient(135deg, var(--bg-light-start), var(--bg-light-end));
+    color: var(--light-text-color);
+    transition: background var(--transition-duration) var(--transition-ease),
+                color var(--transition-duration) var(--transition-ease);
+  }
+  
+  /* ================================
+     Theme Overrides
+     ================================ */
+  
+  /* Classic Theme (Original) */
+  body.theme-light {
+    background: linear-gradient(135deg, var(--bg-light-start), var(--bg-light-end));
+    color: var(--light-text-color);
+    /* Light Theme Tile Colors */
+    --tile-bg: #cdc1b4;
+    --tile-2: #eee4da;
+    --tile-4: #ede0c8;
+    --tile-8: #f2b179;
+    --tile-16: #f59563;
+    --tile-32: #f67c5f;
+    --tile-64: #f65e3b;
+    --tile-128: #edcf72;
+    --tile-256: #edcc61;
+    --tile-512: #edc850;
+    --tile-1024: #edc53f;
+    --tile-2048: #edc22e;
+    /* Use original font */
+    --font-family: 'Roboto', sans-serif;
+  }
+  
+  /* -------------------------------
+     New Themes
+  ------------------------------- */
+  
+  /* Retro Theme – Vintage Sepia Tone */
+  body.theme-dark {
+    background: linear-gradient(135deg, #fff8e1, #ffe0b2);
+    color: #5d4037; /* تیره و قدیمی برای خوانایی */
+    
+    /* Container & Backgrounds */
+    --container-bg: #d7ccc8;
+    --inner-bg: #fffde7;
+    --grid-container-bg: #d7ccc8;
+    
+    /* Vintage Tile Colors (الهام گرفته از رنگ‌های سپیا) */
+    --tile-bg: #e0d4c3;
+    --tile-2: #fdfaf3;
+    --tile-4: #f9f3e3;
+    --tile-8: #f6e3c3;
+    --tile-16: #f3d3a3;
+    --tile-32: #f0c383;
+    --tile-64: #eda163;
+    --tile-128: #ea9053;
+    --tile-256: #e77f43;
+    --tile-512: #e46e33;
+    --tile-1024: #e25d23;
+    --tile-2048: #e04c13;
+    
+    /* Button Styles */
+    --controls-btn-bg: #a1887f;
+    --primary-btn-bg: #8d6e63;
+    
+    /* Shadows */
+    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    
+    /* فونت قدیمی */
+    --font-family: 'Merriweather', serif;
+  }
+  
+  /* Cyber Theme – Neon & Futuristic */
+  body.theme-blue {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff;
+    
+    /* Container & Backgrounds */
+    --container-bg: #1f1f1f;
+    --inner-bg: #2c2c2c;
+    --grid-container-bg: #1f1f1f;
+    
+    /* Neon Tile Colors */
+    --tile-bg: #212121;
+    --tile-2: #00e676;    /* Neon سبز */
+    --tile-4: #00e5ff;    /* Neon فیروزه‌ای */
+    --tile-8: #ffea00;    /* Neon زرد */
+    --tile-16: #ff9100;   /* نارنجی درخشان */
+    --tile-32: #ff1744;   /* قرمز نئونی */
+    --tile-64: #d500f9;   /* بنفش نئونی */
+    --tile-128: #651fff;  /* ایندی نئونی */
+    --tile-256: #3d5afe;  /* آبی نئونی */
+    --tile-512: #00b0ff;  /* آبی روشن */
+    --tile-1024: #00e676;
+    --tile-2048: #00e5ff;
+    
+    /* Button Styles */
+    --controls-btn-bg: #3a3a3a;
+    --primary-btn-bg: #ff1744;
+    
+    /* Shadows قوی برای کنتراست بالا */
+    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.7);
+    
+    /* فونت دیجیتال */
+    --font-family: 'Orbitron', sans-serif;
+  }
+  
+  /* Galaxy Theme – Cosmic & Deep Space */
+  body.theme-green {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+    
+    /* Container & Backgrounds */
+    --container-bg: #2b2b3d;
+    --inner-bg: #3a3a4f;
+    --grid-container-bg: #2b2b3d;
+    
+    /* Cosmic Tile Colors – تم عمیق آبی و بنفش */
+    --tile-bg: #3b3a4a;
+    --tile-2: #4a457d;
+    --tile-4: #5e509a;
+    --tile-8: #7a69b9;
+    --tile-16: #9a83d1;
+    --tile-32: #b89ae8;
+    --tile-64: #d6b0ff;
+    --tile-128: #e0c6ff;
+    --tile-256: #e8d8ff;
+    --tile-512: #f0eaff;
+    --tile-1024: #d6b0ff;
+    --tile-2048: #b89ae8;
+    
+    /* Button Styles */
+    --controls-btn-bg: #4a457d;
+    --primary-btn-bg: #7a69b9;
+    
+    /* Shadows نرم‌تر برای حس جادویی */
+    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.5);
+    
+    /* فونت مدرن */
+    --font-family: 'Exo', sans-serif;
+  }
+  
+  /* Automatic Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(135deg, var(--bg-dark-start), var(--bg-dark-end));
+      color: var(--dark-text-color);
+    }
+  }
+  
+  /* ================================
+     Container & Header Styles
+     ================================ */
+  .container {
+    width: 90%;
+    max-width: 31.25rem;
+    margin: 1.875rem auto;
+    padding: 1.25rem;
+    background: var(--container-bg);
+    border-radius: var(--radius-xlarge);
+    box-shadow: var(--shadow-default);
+    text-align: center;
+  }
+  
+  #timer-display {
+    width: 60%;
+    margin: auto;
+    font-size: 1.2rem;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  #moves-display {
+    width: 60%;
+    margin: auto;
+    font-size: 1.2rem;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  header {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  /* Title Bar: Align title on left and profile info on right */
+  .title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Profile Information */
+  #profile-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    transition: transform var(--transition-duration) var(--transition-ease);
+  }
+  
+  #profile-info img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.125rem solid #fff;
+  }
+  
+  #profile-info img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Coin Display */
+  .coin-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .coin-display img {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  /* Score & Level Bars */
+  .score-bar,
+  .level-bar {
+    margin: var(--spacing-md) 0.5rem;
+    padding: 0.5rem var(--spacing-sm);
+    display: flex;
+  }
+  
+  .score-bar div {
+    background: #eee4da;
+    padding: 0.5rem 0.9375rem;
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-base);
+    color: #776e65;
+    box-shadow: var(--shadow-inner);
+    width: 40%;
+    min-width: max-content;
+    margin: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .level-bar span {
+    margin: 0 auto;
+  }
+  
+  /* XP Bar */
+  .xp-bar {
+    width: 60%;
+    height: 0.5rem;
+    background: #ccc;
+    border-radius: 0.25rem;
+    margin: 0.25rem 0.5rem;
+    overflow: hidden;
+  }
+  
+  .xp-fill {
+    width: 0%;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width var(--transition-duration) var(--transition-ease);
+  }
+  
+  /* ================================
+     Grid & Tile Styles
+     ================================ */
+  .grid-container {
+    display: grid;
+    margin: var(--spacing-lg) auto;
+    gap: 0.5rem;
+    background: var(--grid-container-bg);
+    border-radius: var(--radius-large);
+    box-shadow: inset 0 0 0.3125rem rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    transition: transform var(--transition-duration) var(--transition-ease);
+    padding: 1rem;
+  }
+  
+  /* 4x4 Grid */
+  .grid-container:not(.size-5) {
+    grid-template-columns: repeat(4, 5.3125rem);
+    grid-template-rows: repeat(4, 5.3125rem);
+  }
+  
+  /* 5x5 Grid */
+  .grid-container.size-5 {
+    grid-template-columns: repeat(5, 4.6875rem);
+    grid-template-rows: repeat(5, 4.6875rem);
+  }
+  
+  /* Grid Cells (Tiles) */
+  .grid-cell {
+    width: 5.3125rem;
+    height: 5.3125rem;
+    background: var(--tile-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.625rem;
+    font-weight: bold;
+    border-radius: var(--radius-medium);
+    color: var(--text-color);
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-default);
+    position: relative;
+  }
+  
+  .grid-container.size-5 .grid-cell {
+    width: 4.6875rem;
+    height: 4.6875rem;
+    font-size: 1.375rem;
+  }
+  
+  .grid-cell:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Number Tile Colors */
+  .grid-cell.tile-2 { background-color: var(--tile-2); }
+  .grid-cell.tile-4 { background-color: var(--tile-4); }
+  .grid-cell.tile-8 { background-color: var(--tile-8); }
+  .grid-cell.tile-16 { background-color: var(--tile-16); }
+  .grid-cell.tile-32 { background-color: var(--tile-32); }
+  .grid-cell.tile-64 { background-color: var(--tile-64); }
+  .grid-cell.tile-128 { background-color: var(--tile-128); }
+  .grid-cell.tile-256 { background-color: var(--tile-256); }
+  .grid-cell.tile-512 { background-color: var(--tile-512); }
+  .grid-cell.tile-1024 { background-color: var(--tile-1024); }
+  .grid-cell.tile-2048 { background-color: var(--tile-2048); }
+  
+  /* برای سلول‌های فریز شده: */
+  .frozen-cell {
+    border: 2px solid #0077ff;
+    background-color: #cce5ff;
+  }
+  
+  /* ================================
+     Control Buttons & Primary Button
+     ================================ */
+  .controls {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+  }
+  
+  .controls button {
+    width: 2.8125rem;
+    height: 2.8125rem;
+    background: var(--controls-btn-bg);
+    border: none;
+    border-radius: var(--radius-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--transition-duration) var(--transition-ease),
+                transform 0.2s;
+  }
+  
+  .controls button img {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  
+  .controls button:hover {
+    transform: translateY(-0.125rem);
+  }
+  
+  /* Primary Button */
+  .primary-btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary-btn-bg);
+    color: var(--secondary-color);
+    font-weight: bold;
+    border: none;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    transition: background var(--transition-duration) var(--transition-ease),
+                transform 0.2s;
+  }
+  
+  .primary-btn:hover {
+    transform: translateY(-0.125rem);
+  }
+  
+  /* New Game Button: More prominent style */
+  #new-game-btn {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--accent-color);
+    box-shadow: var(--shadow-hover);
+    transition: background-color var(--transition-duration) var(--transition-ease),
+                transform 0.2s;
+    width: 5rem;
+  }
+  
+  #new-game-btn:hover {
+    transform: translateY(-0.125rem);
+    background-color: #e06650;
+  }
+  
+  /* ================================
+     Advertisement Banner
+     ================================ */
+  .ad-banner {
+    background: #f0f0f0;
+    padding: 0.625rem;
+    margin: 0.625rem 0;
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-small);
+    box-shadow: var(--shadow-default);
+  }
+  
+  /* ================================
+     Profile Page Styles
+     ================================ */
+  #profile-page {
+    width: 90%;
+    max-width: 31.25rem;
+    background: var(--inner-bg);
+    border-radius: var(--radius-xlarge);
+    padding: 1.25rem;
+    margin: 1.25rem auto;
+    box-shadow: var(--shadow-default);
+    text-align: center;
+  }
+  
+  #profile-page header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .profile-settings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    text-align: left;
+  }
+  
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .settings-form label {
+    font-size: var(--font-size-small);
+    color: #555;
+  }
+  
+  .settings-form input {
+    padding: 0.5rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: var(--radius-small);
+    font-size: var(--font-size-small);
+  }
+  
+  /* ================================
+     Theme Selection
+     ================================ */
+  .theme-selection {
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .theme-selection h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .theme-options {
+    display: flex;
+    justify-content: center;
+    gap: 0.625rem;
+  }
+  
+  /* Theme Button Styles */
+  .theme-btn {
+    padding: 0.625rem 0.9375rem;
+    border: none;
+    border-radius: var(--radius-small);
+    cursor: pointer;
+    background: var(--secondary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+                background-color var(--transition-duration) var(--transition-ease),
+                color var(--transition-duration) var(--transition-ease);
+  }
+  
+  .theme-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .theme-btn.active {
+    border: 0.125rem solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+  
+  /* Profile Page Buttons */
+  #profile-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: var(--spacing-md);
+  }
+  
+  #profile-buttons button {
+    padding: 0.625rem;
+    border: none;
+    border-radius: var(--radius-small);
+    background: var(--primary-btn-bg);
+    color: #fff;
+    cursor: pointer;
+    transition: background var(--transition-duration) var(--transition-ease),
+                transform 0.2s;
+  }
+  
+  #profile-buttons button:hover {
+    transform: translateY(-0.125rem);
+  }
+  
+  /* ================================
+     Modal Styles
+     ================================ */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .modal-content {
+    background: var(--inner-bg);
+    width: 90%;
+    max-width: 20rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-large);
+    text-align: center;
+    position: relative;
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .close-modal {
+    position: absolute;
+    top: 0.625rem;
+    right: 0.9375rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+  }
+  
+  .close-modal:hover {
+    color: #000;
+  }
+  
+  /* New Game Modal Options */
+  .newgame-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .game-mode-selection p,
+  .grid-size-selection p {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .game-mode-cards,
+  .grid-size-cards {
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .mode-card,
+  .size-card {
+    background: var(--tile-bg);
+    border-radius: var(--radius-medium);
+    padding: 0.625rem;
+    cursor: pointer;
+    transition: transform var(--transition-duration) var(--transition-ease),
+                box-shadow var(--transition-duration) var(--transition-ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 6.25rem;
+  }
+  
+  .mode-card img,
+  .size-card img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.3125rem;
+  }
+  
+  .mode-card:hover,
+  .size-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .mode-card.active,
+  .size-card.active {
+    border: 0.125rem solid var(--accent-color);
+  }
+  
+  /* ================================
+     Focus Styles for Accessibility
+     ================================ */
+  button:focus,
+  input:focus,
+  .theme-btn:focus {
+    outline: 0.125rem solid var(--primary-color);
+    outline-offset: 0.125rem;
+  }
+  
+  /* ================================
+     Responsive Styles
+     ================================ */
+  @media (max-width: 28.125rem) {
+    .grid-container:not(.size-5) {
+      gap: 0.3125rem;
+      grid-template-columns: repeat(4, 3.75rem);
+      grid-template-rows: repeat(4, 3.75rem);
+      padding: 0.625rem;
+    }
+    
+    .grid-container.size-5 {
+      grid-template-columns: repeat(5, 3.125rem);
+      grid-template-rows: repeat(5, 3.125rem);
+      padding: 0.9375rem 0.625rem;
+    }
+    
+    .grid-cell {
+      width: 3.75rem;
+      height: 3.75rem;
+      font-size: 1.125rem;
+    }
+    
+    .controls button {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 48rem) {
+    .container {
+      padding: 1rem;
+    }
+    
+    .header-top {
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+  }
+  
+  /* ================================
+     Animations for Special Buttons
+     ================================ */
+  
+  /* انیمیشن بمب */
+  @keyframes bomb-animation {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  .bomb-animation {
+    animation: bomb-animation 0.6s ease-in-out;
+  }
+  
+  /* انیمیشن سواپ */
+  @keyframes swap-animation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .swap-animation {
+    animation: swap-animation 0.5s ease-in-out;
+  }
+  
+  /* انیمیشن فریز */
+  @keyframes freeze-animation {
+    0% { background-color: var(--tile-bg); }
+    50% { background-color: #0077ff; }
+    100% { background-color: var(--tile-bg); }
+  }
+  
+  .freeze-animation {
+    animation: freeze-animation 0.8s ease-in-out;
+  }
+  
+  /* ... (بخش‌های قبلی CSS) ... */
+
+/* انیمیشن پاداش ویژه */
+@keyframes special-reward-animation {
+  0% { transform: scale(1); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+.special-reward-animation {
+  animation: special-reward-animation 1s ease-in-out;
+}
+
+/* انیمیشن جدید برای مدال‌ها (bounce effect) */
+@keyframes modalBounce {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.modal.active {
+  animation: modalBounce 0.4s ease-out;
+}
+
+/* استایل فروشگاه (Shop) */
+#shop-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+.shop-item {
+  border: 1px solid #ccc;
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop-item button {
+  background: var(--primary-btn-bg);
+  border: none;
+  border-radius: var(--radius-small);
+  color: #fff;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background var(--transition-duration) var(--transition-ease);
+}
+.shop-item button:hover {
+  background: #e06650;
+}
+
+/* استایل دستاوردها */
+.achievement-item {
+  border: 1px solid #ddd;
+  border-radius: var(--radius-small);
+  padding: var(--spacing-xs);
+  margin: var(--spacing-xs) 0;
+  background: #f9f6f2;
+}
