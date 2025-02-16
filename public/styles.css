@@ -89,7 +89,7 @@
      Global Styles
      ====================*/
 body {
-    position: fixed;  /* صفحه رو قفل می‌کنه که اسکرول نشه */
+   
     touch-action: none;  /* جلوگیری از اسکرول لمسی */    
     font-family: var(--font-family);
     font-size: var(--font-size-base);
