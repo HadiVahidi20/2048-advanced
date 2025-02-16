@@ -70,27 +70,12 @@
     
     /* Modal Background */
     --modal-bg: rgba(0, 0, 0, 0.6);
-    
-    /* Tile Colors for Numbers (Light Theme Defaults) */
-    --tile-2: #eee4da;
-    --tile-4: #ede0c8;
-    --tile-8: #f2b179;
-    --tile-16: #f59563;
-    --tile-32: #f67c5f;
-    --tile-64: #f65e3b;
-    --tile-128: #edcf72;
-    --tile-256: #edcc61;
-    --tile-512: #edc850;
-    --tile-1024: #edc53f;
-    --tile-2048: #edc22e;
   }
   
   /* ================================
      Global Styles
-     ====================*/
-body {
-   
-    touch-action: none;  /* جلوگیری از اسکرول لمسی */    
+     ================================ */
+  body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
     background: linear-gradient(135deg, var(--bg-light-start), var(--bg-light-end));
@@ -99,141 +84,25 @@ body {
                 color var(--transition-duration) var(--transition-ease);
   }
   
-  /* ================================
-     Theme Overrides
-     ================================ */
-  
-  /* Classic Theme (Original) */
+  /* Theme Overrides */
   body.theme-light {
     background: linear-gradient(135deg, var(--bg-light-start), var(--bg-light-end));
     color: var(--light-text-color);
-    /* Light Theme Tile Colors */
-    --tile-bg: #cdc1b4;
-    --tile-2: #eee4da;
-    --tile-4: #ede0c8;
-    --tile-8: #f2b179;
-    --tile-16: #f59563;
-    --tile-32: #f67c5f;
-    --tile-64: #f65e3b;
-    --tile-128: #edcf72;
-    --tile-256: #edcc61;
-    --tile-512: #edc850;
-    --tile-1024: #edc53f;
-    --tile-2048: #edc22e;
-    /* Use original font */
-    --font-family: 'Roboto', sans-serif;
   }
   
-  /* -------------------------------
-     New Themes
-  ------------------------------- */
-  
-  /* Retro Theme – Vintage Sepia Tone */
   body.theme-dark {
-    background: linear-gradient(135deg, #fff8e1, #ffe0b2);
-    color: #5d4037; /* تیره و قدیمی برای خوانایی */
-    
-    /* Container & Backgrounds */
-    --container-bg: #d7ccc8;
-    --inner-bg: #fffde7;
-    --grid-container-bg: #d7ccc8;
-    
-    /* Vintage Tile Colors (الهام گرفته از رنگ‌های سپیا) */
-    --tile-bg: #e0d4c3;
-    --tile-2: #fdfaf3;
-    --tile-4: #f9f3e3;
-    --tile-8: #f6e3c3;
-    --tile-16: #f3d3a3;
-    --tile-32: #f0c383;
-    --tile-64: #eda163;
-    --tile-128: #ea9053;
-    --tile-256: #e77f43;
-    --tile-512: #e46e33;
-    --tile-1024: #e25d23;
-    --tile-2048: #e04c13;
-    
-    /* Button Styles */
-    --controls-btn-bg: #a1887f;
-    --primary-btn-bg: #8d6e63;
-    
-    /* Shadows */
-    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
-    
-    /* فونت قدیمی */
-    --font-family: 'Merriweather', serif;
+    background: linear-gradient(135deg, var(--bg-dark-start), var(--bg-dark-end));
+    color: var(--dark-text-color);
   }
   
-  /* Cyber Theme – Neon & Futuristic */
   body.theme-blue {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #ffffff;
-    
-    /* Container & Backgrounds */
-    --container-bg: #1f1f1f;
-    --inner-bg: #2c2c2c;
-    --grid-container-bg: #1f1f1f;
-    
-    /* Neon Tile Colors */
-    --tile-bg: #212121;
-    --tile-2: #00e676;    /* Neon سبز */
-    --tile-4: #00e5ff;    /* Neon فیروزه‌ای */
-    --tile-8: #ffea00;    /* Neon زرد */
-    --tile-16: #ff9100;   /* نارنجی درخشان */
-    --tile-32: #ff1744;   /* قرمز نئونی */
-    --tile-64: #d500f9;   /* بنفش نئونی */
-    --tile-128: #651fff;  /* ایندی نئونی */
-    --tile-256: #3d5afe;  /* آبی نئونی */
-    --tile-512: #00b0ff;  /* آبی روشن */
-    --tile-1024: #00e676;
-    --tile-2048: #00e5ff;
-    
-    /* Button Styles */
-    --controls-btn-bg: #3a3a3a;
-    --primary-btn-bg: #ff1744;
-    
-    /* Shadows قوی برای کنتراست بالا */
-    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.5);
-    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.7);
-    
-    /* فونت دیجیتال */
-    --font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, var(--bg-blue-start), var(--bg-blue-end));
+    color: var(--blue-text-color);
   }
   
-  /* Galaxy Theme – Cosmic & Deep Space */
   body.theme-green {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    color: #e0e0e0;
-    
-    /* Container & Backgrounds */
-    --container-bg: #2b2b3d;
-    --inner-bg: #3a3a4f;
-    --grid-container-bg: #2b2b3d;
-    
-    /* Cosmic Tile Colors – تم عمیق آبی و بنفش */
-    --tile-bg: #3b3a4a;
-    --tile-2: #4a457d;
-    --tile-4: #5e509a;
-    --tile-8: #7a69b9;
-    --tile-16: #9a83d1;
-    --tile-32: #b89ae8;
-    --tile-64: #d6b0ff;
-    --tile-128: #e0c6ff;
-    --tile-256: #e8d8ff;
-    --tile-512: #f0eaff;
-    --tile-1024: #d6b0ff;
-    --tile-2048: #b89ae8;
-    
-    /* Button Styles */
-    --controls-btn-bg: #4a457d;
-    --primary-btn-bg: #7a69b9;
-    
-    /* Shadows نرم‌تر برای حس جادویی */
-    --shadow-default: 0 4px 8px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.5);
-    
-    /* فونت مدرن */
-    --font-family: 'Exo', sans-serif;
+    background: linear-gradient(135deg, var(--bg-green-start), var(--bg-green-end));
+    color: var(--green-text-color);
   }
   
   /* Automatic Dark Mode */
@@ -247,20 +116,16 @@ body {
   /* ================================
      Container & Header Styles
      ================================ */
- .container {
+  .container {
     width: 90%;
     max-width: 31.25rem;
+    margin: 1.875rem auto;
     padding: 1.25rem;
     background: var(--container-bg);
     border-radius: var(--radius-xlarge);
     box-shadow: var(--shadow-default);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
+  }
   
   #timer-display {
     width: 60%;
@@ -385,6 +250,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform var(--transition-duration) var(--transition-ease);
+    /* Ù¾ÛŒØ´Ù†Ù‡Ø§Ø¯: Ø§ÙØ²ÙˆØ¯Ù† padding Ø¯Ø§Ø®Ù„ÛŒ Ø¨ÛŒØ´ØªØ± Ø¨Ø±Ø§ÛŒ Ø²ÛŒØ¨Ø§ÛŒÛŒ */
     padding: 1rem;
   }
   
@@ -428,20 +294,7 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
   }
   
-  /* Number Tile Colors */
-  .grid-cell.tile-2 { background-color: var(--tile-2); }
-  .grid-cell.tile-4 { background-color: var(--tile-4); }
-  .grid-cell.tile-8 { background-color: var(--tile-8); }
-  .grid-cell.tile-16 { background-color: var(--tile-16); }
-  .grid-cell.tile-32 { background-color: var(--tile-32); }
-  .grid-cell.tile-64 { background-color: var(--tile-64); }
-  .grid-cell.tile-128 { background-color: var(--tile-128); }
-  .grid-cell.tile-256 { background-color: var(--tile-256); }
-  .grid-cell.tile-512 { background-color: var(--tile-512); }
-  .grid-cell.tile-1024 { background-color: var(--tile-1024); }
-  .grid-cell.tile-2048 { background-color: var(--tile-2048); }
-  
-  /* برای سلول‌های فریز شده: */
+  /* Ø¨Ø±Ø§ÛŒ Ø³Ù„ÙˆÙ„â€ŒÙ‡Ø§ÛŒ ÙØ±ÛŒØ² Ø´Ø¯Ù‡: */
   .frozen-cell {
     border: 2px solid #0077ff;
     background-color: #cce5ff;
@@ -803,7 +656,7 @@ body {
      Animations for Special Buttons
      ================================ */
   
-  /* انیمیشن بمب */
+  /* Ø§Ù†ÛŒÙ…ÛŒØ´Ù† Ø¨Ù…Ø¨ */
   @keyframes bomb-animation {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.5); opacity: 0.5; }
@@ -814,7 +667,7 @@ body {
     animation: bomb-animation 0.6s ease-in-out;
   }
   
-  /* انیمیشن سواپ */
+  /* Ø§Ù†ÛŒÙ…ÛŒØ´Ù† Ø³ÙˆØ§Ù¾ */
   @keyframes swap-animation {
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -825,7 +678,7 @@ body {
     animation: swap-animation 0.5s ease-in-out;
   }
   
-  /* انیمیشن فریز */
+  /* Ø§Ù†ÛŒÙ…ÛŒØ´Ù† ÙØ±ÛŒØ² */
   @keyframes freeze-animation {
     0% { background-color: var(--tile-bg); }
     50% { background-color: #0077ff; }
@@ -836,61 +689,3 @@ body {
     animation: freeze-animation 0.8s ease-in-out;
   }
   
-  /* ... (بخش‌های قبلی CSS) ... */
-
-/* انیمیشن پاداش ویژه */
-@keyframes special-reward-animation {
-  0% { transform: scale(1); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.8; }
-}
-.special-reward-animation {
-  animation: special-reward-animation 1s ease-in-out;
-}
-
-/* انیمیشن جدید برای مدال‌ها (bounce effect) */
-@keyframes modalBounce {
-  0% { transform: scale(0.8); opacity: 0; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.modal.active {
-  animation: modalBounce 0.4s ease-out;
-}
-
-/* استایل فروشگاه (Shop) */
-#shop-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  margin: var(--spacing-md) 0;
-}
-.shop-item {
-  border: 1px solid #ccc;
-  border-radius: var(--radius-medium);
-  padding: var(--spacing-sm);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.shop-item button {
-  background: var(--primary-btn-bg);
-  border: none;
-  border-radius: var(--radius-small);
-  color: #fff;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: background var(--transition-duration) var(--transition-ease);
-}
-.shop-item button:hover {
-  background: #e06650;
-}
-
-/* استایل دستاوردها */
-.achievement-item {
-  border: 1px solid #ddd;
-  border-radius: var(--radius-small);
-  padding: var(--spacing-xs);
-  margin: var(--spacing-xs) 0;
-  background: #f9f6f2;
-}
