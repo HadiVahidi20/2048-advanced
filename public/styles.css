@@ -248,6 +248,7 @@ body {
      Container & Header Styles
      ================================ */
   .container {
+      margin: auto;
     width: 90%;
     max-width: 31.25rem;
     margin: 1.875rem auto;
